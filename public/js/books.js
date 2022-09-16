@@ -1,58 +1,41 @@
-const books = [
-  {
-    title: "Do Androids Dream of Electric Sheep?",
-    genres: [ "Science Fiction", "Fantasy" ],
-    author: { lastName: "Dick", otherNames: "Philip K." },
-  },
-  {
-    title: "A Scanner Darkly",
-    genres: [ "Science Fiction", "Fantasy" ],
-    author: { lastName: "Dick", otherNames: "Philip K." },
-  },
-  {
-    title: "Do Androids Dream of Electric Sheep?",
-    genres: [ "Science Fiction", "Mystery", "Thriller" ],
-    author: { lastName: "Dick", otherNames: "Philip K." },
-  },
-  {
-    title: "Parable of the Sower",
-    genres: [ "Science Fiction", "Fantasy" ],
-    author: { lastName: "Octavia E.", otherNames: "Butler" },
-  },
-  {
-    title: "Parable of the Talents",
-    genres: [ "Science Fiction", "Fantasy" ],
-    author: { lastName: "Octavia E.", otherNames: "Butler" },
-  },
-  {
-    title: "Kindred",
-    genres: [ "Science Fiction", "Fantasy", "Historical" ],
-    author: { lastName: "Octavia E.", otherNames: "Butler" },
-  },
-  {
-    title: "The Hundred Thousand Kingdoms",
-    genres: [ "Science Fiction", "Fantasy", "Romance" ],
-    author: { lastName: "Jemisin", otherNames: "N. K." },
-  },
-  {
-    title: "The Killing Moon",
-    genres: [ "Science Fiction", "Fantasy" ],
-    author: { lastName: "Jemisin", otherNames: "N. K." },
-  },
-  {
-    title: "The Fifth Season",
-    genres: [ "Science Fiction", "Fantasy" ],
-    author: { lastName: "Jemisin", otherNames: "N. K." },
-  },  
-];
+import {
+  addBook,
+  getBooks,
+  getFullName,
+  getGenres,
+  getAuthors,
+} from "./api.js";
+
+let authorsCache;
+
+function populateFormOptions() {
+  const authorSel = document.querySelector('select[name="author"]');
+  authorsCache = getAuthors();
+  authorsCache.forEach((author, idx) => {
+    const opt = document.createElement("option");
+    opt.value = idx;
+    opt.innerText = getFullName(author);
+    authorSel.appendChild(opt);
+  });
+  
+  const genreSel = document.querySelector('select[name="genres"]');
+  getGenres().forEach(genre => {
+    const opt = document.createElement("option");
+    opt.value = genre;
+    opt.innerText = genre;
+    genreSel.appendChild(opt);
+  });
+}
 
 function showContent() {
   const temp = document.getElementsByTagName("template")[0];
   const contentDiv = document.getElementById("content");
   contentDiv.innerHTML = "";
-  authors.forEach(author => {
+  getBooks().forEach(book => {
     const cloneDiv = temp.content.cloneNode(true);
-    cloneDiv.querySelector(".author").innerText = `${author.otherNames} ${author.lastName}`;
+    cloneDiv.querySelector(".title").innerText = book.title;
+    cloneDiv.querySelector(".author").innerText = getFullName(book.author);
+    cloneDiv.querySelector(".genres").innerText = book.genres.join(", ");
     contentDiv.appendChild(cloneDiv);
   });
 }
@@ -60,12 +43,14 @@ function showContent() {
 function handleSubmit(evt) {
   evt.preventDefault();
   const formData = evt.target;
-  const lastName = formData["lastname"].value.trim();
-  const otherNames = formData["othernames"].value.trim();
-  authors.push({ lastName, otherNames });
+  const title = formData["title"].value;
+  const author = authorsCache[Number(formData["author"].value)];
+  const genres = [ formData["genres"].value ]; // how to get array of values!?!
+  addBook({ title, author, genres });
   showContent();
 }
 
+populateFormOptions();
 const formDiv = document.getElementsByTagName("form")[0];
 formDiv.addEventListener("submit", handleSubmit);
 showContent();

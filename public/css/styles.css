@@ -19,6 +19,6 @@ form {
     border: 1px solid black;
 }
 
-form input {
+form input, form .select {
     margin-bottom: 8px;
 }

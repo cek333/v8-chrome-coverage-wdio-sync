@@ -4,40 +4,49 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Book Library: Books</title>
+  <title>Library: Books</title>
   <link rel="stylesheet" href="css/styles.css" />
   <!-- jquery (for select) -->
   <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.6.0.min.js"></script>
   <!-- https://select2.org/ -->
   <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
   <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('.form-select').select2({
+        width: "300px",
+      });
+    });
+  </script>
 </head>
 <body>
   <div class="root">
-    <h1>Book Library: Books</h1>
+    <h1>Library: Books</h1>
     <div id="content">
     </div>
     <form>
       <h3>New Book</h3>
-      <label for="lastname">Last Name:</label>
-      <input type="text" name="lastname" size="25"><br>
-      <label for="othernames">Other Names:</label>
-      <input type="text" name="othernames" size="25"><br>
+      <label for="title">Title:</label>
+      <input type="text" name="title" size="40"><br>
+      <div class="select">
+        <label for="author">Author:</label>
+        <select name="author" class="form-select">
+        </select>
+      </div>
+      <div class="select">
+        <label for="genres">Genres:</label>
+        <select name="genres" class="form-select" multiple>
+        </select>
+      </div>
       <input type="submit" value="Add"><br>
     </form>
+    <a href="index.html">Back to Main Page</a>
   </div>
   <template>
     <div class="item">
-      <h2 class="author"></h2>
-    </div>
-  </template>
-
-  <div class="root"></div>
-  <template>
-    <div class="item">
-      <h2 class="title"></h2>
-      <div>Author:<span class="author"></span></div>
-      <div>Genres:<span class="genres"></span></div>
+      <h4 class="title"></h4>
+      <div>Author:&nbsp;<span class="author"></span></div>
+      <div>Genres:&nbsp;<span class="genres"></span></div>
     </div>
   </template>
   <script src="js/books.js" type="module"></script>
