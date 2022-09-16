@@ -1,0 +1,23 @@
+{
+  "name": "v8-chrome-coverage",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cek333/v8-chrome-coverage.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cek333/v8-chrome-coverage/issues"
+  },
+  "homepage": "https://github.com/cek333/v8-chrome-coverage#readme",
+  "dependencies": {
+    "http-server": "^14.1.1"
+  }
+}
