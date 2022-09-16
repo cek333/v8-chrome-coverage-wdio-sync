@@ -1,23 +1,32 @@
 {
-  "name": "v8-chrome-coverage",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/cek333/v8-chrome-coverage.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/cek333/v8-chrome-coverage/issues"
-  },
-  "homepage": "https://github.com/cek333/v8-chrome-coverage#readme",
-  "dependencies": {
-    "http-server": "^14.1.1"
-  }
+    "name": "v8-chrome-coverage",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "wdio": "wdio run wdio.conf.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/cek333/v8-chrome-coverage.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/cek333/v8-chrome-coverage/issues"
+    },
+    "homepage": "https://github.com/cek333/v8-chrome-coverage#readme",
+    "dependencies": {
+        "http-server": "^14.1.1"
+    },
+    "devDependencies": {
+        "@wdio/cli": "^7.24.0",
+        "@wdio/local-runner": "^7.24.0",
+        "@wdio/mocha-framework": "^7.24.0",
+        "@wdio/spec-reporter": "^7.24.0",
+        "chromedriver": "^105.0.0",
+        "wdio-chromedriver-service": "^7.3.2"
+    }
 }
