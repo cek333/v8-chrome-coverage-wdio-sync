@@ -1,15 +1,11 @@
-const LoginPage = require('../pageobjects/login.page');
-const SecurePage = require('../pageobjects/secure.page');
+const LandingPage = require('../pageobjects/landing.page');
+const AuthorsPage = require('../pageobjects/authors.page');
 
-describe('My Login application', () => {
-    it('should login with valid credentials', async () => {
-        await LoginPage.open();
-
-        await LoginPage.login('tomsmith', 'SuperSecretPassword!');
-        await expect(SecurePage.flashAlert).toBeExisting();
-        await expect(SecurePage.flashAlert).toHaveTextContaining(
-            'You logged into a secure area!');
-    });
+describe('Navigate to Authors Page from Landing Page', () => {
+  it('should navigate to authors page', async () => {
+    await LandingPage.open();
+    await LandingPage.selectLink("Authors");
+    
+    await expect(AuthorsPage.title).toHaveTextContaining("Library: Authors");
+  });
 });
-
-
