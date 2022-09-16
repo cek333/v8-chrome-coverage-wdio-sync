@@ -12,12 +12,21 @@
     <h1>Book Library: Authors</h1>
     <div id="content">
     </div>
+    <form>
+      <h3>New Author</h3>
+      <label for="lastname">Last Name:</label>
+      <input type="text" name="lastname" size="25"><br>
+      <label for="othernames">Other Names:</label>
+      <input type="text" name="othernames" size="25"><br>
+      <input type="submit" value="Add"><br>
+    </form>
+    <a href="index.html">Back to Main Page</a>
   </div>
   <template>
     <div class="item">
       <h2 class="author"></h2>
     </div>
   </template>
-  <script src="js/authors.js"></script>
+  <script src="js/authors.js" type="module"></script>
 </body>
 </html>

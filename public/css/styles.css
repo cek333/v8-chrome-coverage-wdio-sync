@@ -6,5 +6,19 @@
 .item {
     border: 1px solid black;
     padding: 10px;
-    margin: 5px;
+    margin: 5px 0px;
+}
+
+.genres .item {
+    display: inline-block;
+}
+
+form {
+    margin: 20px 0px;
+    padding: 10px;
+    border: 1px solid black;
+}
+
+form input {
+    margin-bottom: 8px;
 }

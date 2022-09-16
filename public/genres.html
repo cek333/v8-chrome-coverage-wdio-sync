@@ -8,7 +8,22 @@
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
-  <div class="root"></div>
-  <script src="js/genres.js"></script>
+  <div class="root">
+    <h1>Book Library: Genres</h1>
+    <div id="content" class="genres">
+    </div>
+    <form>
+      <h3>New Genre</h3>
+      <input type="text" name="newgenre" size="25"><br>
+      <input type="submit" value="Add"><br>
+    </form>
+    <a href="index.html">Back to Main Page</a>
+  </div>
+  <template>
+    <div class="item">
+      <span class="genre"></span>
+    </div>
+  </template>
+  <script src="js/genres.js" type="module"></script>
 </body>
 </html>
