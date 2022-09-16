@@ -1,3 +1,5 @@
+const helpers = require('./wdio-helpers');
+
 exports.config = {
     //
     // ====================
@@ -20,8 +22,13 @@ exports.config = {
     // then the current working directory is where your `package.json` resides, so `wdio`
     // will be called from there.
     //
+    // specs: [
+    //     './test/specs/**/*.js'
+    // ],
     specs: [
+      [
         './test/specs/**/*.js'
+      ]
     ],
     // Patterns to exclude.
     exclude: [
@@ -110,7 +117,7 @@ exports.config = {
     // Services take over a specific job you don't want to take care of. They enhance
     // your test setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the test process.
-    services: ['chromedriver'],
+    services: ['chromedriver', 'devtools'],
     
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber
@@ -208,8 +215,9 @@ exports.config = {
      * Hook that gets executed before the suite starts
      * @param {Object} suite suite details
      */
-    // beforeSuite: function (suite) {
-    // },
+    beforeSuite: function (suite) {
+      helpers.startCoverage();
+    },
     /**
      * Function to be executed before a test (in Mocha/Jasmine) starts.
      */
@@ -245,8 +253,9 @@ exports.config = {
      * Hook that gets executed after the suite has ended
      * @param {Object} suite suite details
      */
-    // afterSuite: function (suite) {
-    // },
+    afterSuite: function (suite) {
+      helpers.dumpCoverage();
+    },
     /**
      * Runs after a WebdriverIO command gets executed
      * @param {String} commandName hook command name
