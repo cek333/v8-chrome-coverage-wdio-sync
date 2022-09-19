@@ -11,9 +11,11 @@ On test completion, a script (`scripts/mergeAndResolveUrls.js`) is run to conver
 Next the `c8` tool is used to generate an `lcov` report. The coverage results can be viewed at `coverage/lcov-report/index.html`.
 
 ## Notable Dependencies
+
 * node v12 (but node versions < v16 should also work. This is a requirement of the `@wdio/sync` module.)
 * chrome 104. If you're using a different version of chrome you'll have to install the chromedriver module matching your chrome version.
 
 ## To Run
-`npm run ci`: This will run the test and generate the report. (Previous test reports and coverage data will be deleted!!!)
-`google-chrome coverage/lcov-report/index.html`: View the report.
+
+* `npm run ci`: This will run the test and generate the report. (Previous test reports and coverage data will be deleted!!!)
+* `google-chrome coverage/lcov-report/index.html`: View the report.
