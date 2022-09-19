@@ -16,3 +16,4 @@ Next the `c8` tool is used to generate an `lcov` report. The coverage results ca
 
 ## To Run
 `npm run ci`: This will run the test and generate the report. (Previous test reports and coverage data will be deleted!!!)
+`google-chrome coverage/lcov-report/index.html`: View the report.
