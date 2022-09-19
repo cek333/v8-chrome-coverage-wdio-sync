@@ -31,11 +31,11 @@ class BooksPage extends Page {
    * a method to encapsule automation code to interact with the page
    * e.g. to login using username and password
    */
-  async addBook (title, authorIdx, genreIdx) {
-    await this.inputTitle.setValue(title);
-    await this.inputAuthor.selectByIndex(authorIdx);
-    await this.inputGenres.selectByIndex(genreIdx);
-    await this.btnSubmit.click();
+  addBook (title, authorIdx, genreIdx) {
+    this.inputTitle.setValue(title);
+    this.inputAuthor.selectByIndex(authorIdx);
+    this.inputGenres.selectByIndex(genreIdx);
+    this.btnSubmit.click();
   }
 
   /**

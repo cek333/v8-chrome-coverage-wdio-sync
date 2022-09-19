@@ -27,10 +27,10 @@ class AuthorsPage extends Page {
    * a method to encapsule automation code to interact with the page
    * e.g. to login using username and password
    */
-  async addAuthor (lastname, othernames) {
-    await this.inputLastName.setValue(lastname);
-    await this.inputOtherNames.setValue(othernames);
-    await this.btnSubmit.click();
+  addAuthor (lastname, othernames) {
+    this.inputLastName.setValue(lastname);
+    this.inputOtherNames.setValue(othernames);
+    this.btnSubmit.click();
   }
 
   /**

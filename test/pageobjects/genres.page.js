@@ -27,9 +27,9 @@ class GenresPage extends Page {
    * a method to encapsule automation code to interact with the page
    * e.g. to login using username and password
    */
-  async addGenre (newgenre) {
-    await this.inputGenre.setValue(newgenre);
-    await this.btnSubmit.click();
+  addGenre (newgenre) {
+    this.inputGenre.setValue(newgenre);
+    this.btnSubmit.click();
   }
 
   /**

@@ -15,8 +15,8 @@ class LandingPage extends Page {
    * a method to encapsule automation code to interact with the page
    * e.g. to login using username and password
    */
-  async selectLink (target) {
-    await $(`=${target}`).click();
+  selectLink (target) {
+    $(`=${target}`).click();
   }
 
   // Inherits open() method
