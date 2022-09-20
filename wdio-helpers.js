@@ -35,10 +35,7 @@ module.exports = {
      * capture test coverage
      */
     const c8coverage = browser.cdp('Profiler', 'takePreciseCoverage');
-    if (c8coverage.result) {
-      const coverage = c8coverage.result.filter((res) => res.url !== '')
-      console.log(coverage)
-    } else {
+    if (!c8coverage.result) {
       console.log('*** NO COVERAGE DATA ***');
     }
     
